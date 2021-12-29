@@ -19,7 +19,4 @@ public class Place {
     private Long id;
     private String name;
 
-    @ManyToOne
-    private City city;
-
 }

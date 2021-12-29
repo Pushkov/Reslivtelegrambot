@@ -2,11 +2,11 @@ package nicomed.resliv.telegrambot.service;
 
 import java.util.Collection;
 
-public interface CrudService<D, ID> {
+public interface CrudService<C, D, ID> {
 
     D findById(ID id);
 
-    void save(D entity);
+    void save(C creatDto);
 
     Collection<D> findAll();
 

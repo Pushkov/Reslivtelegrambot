@@ -6,7 +6,7 @@ import nicomed.resliv.telegrambot.service.CrudService;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public abstract class AbstractService<D, T, ID> implements BaseService<T, ID>, CrudService<D, ID> {
+public abstract class AbstractService<C, D, T, ID> implements BaseService<T, ID>, CrudService<C, D, ID> {
 
     @Override
     public D findById(ID id) {
@@ -15,7 +15,7 @@ public abstract class AbstractService<D, T, ID> implements BaseService<T, ID>, C
     }
 
     @Override
-    public void save(D dto) {
+    public void save(C dto) {
         getRepository().save(mapToEntity(dto));
     }
 
@@ -33,7 +33,7 @@ public abstract class AbstractService<D, T, ID> implements BaseService<T, ID>, C
 
     public abstract D mapToDto(T entity);
 
-    public abstract T mapToEntity(D dto);
+    public abstract T mapToEntity(C createDto);
 
-    public abstract void mapToEntity(T entity, D dto);
+    public abstract void mapToEntity(T entity, C createDto);
 }

@@ -7,17 +7,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class CityDto {
+public class PlaceDto {
     private Long id;
     private String name;
-    private List<PlaceDto> goodPlaces;
-    private List<PlaceDto> badPlaces;
 }
