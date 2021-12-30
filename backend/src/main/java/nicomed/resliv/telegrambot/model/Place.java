@@ -17,6 +17,12 @@ public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "IS_GOOD")
+    private boolean isGood;
+
+    @ManyToOne
+    private City city;
 
 }

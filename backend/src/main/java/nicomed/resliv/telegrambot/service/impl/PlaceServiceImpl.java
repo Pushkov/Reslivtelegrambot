@@ -5,6 +5,7 @@ import nicomed.resliv.telegrambot.dto.PlaceDto;
 import nicomed.resliv.telegrambot.dto.mapper.PlaceMapper;
 import nicomed.resliv.telegrambot.model.Place;
 import nicomed.resliv.telegrambot.repository.PlaceRepository;
+import nicomed.resliv.telegrambot.service.CityService;
 import nicomed.resliv.telegrambot.service.PlaceService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class PlaceServiceImpl extends AbstractService<PlaceDto, PlaceDto, Place, Long> implements PlaceService {
 
     private final PlaceRepository placeRepository;
+    private final CityService cityService;
     private final PlaceMapper mapper;
 
     @Override
@@ -24,10 +26,29 @@ public class PlaceServiceImpl extends AbstractService<PlaceDto, PlaceDto, Place,
         return getRepository().findById(id).orElse(null);
     }
 
+    @Override
+    public void addPlace(Long id, PlaceDto dto) {
+        Place place = mapToEntity(dto);
+        place.setCity(cityService.findEntityById(id));
+        getRepository().save(place);
+    }
+
+    @Transactional
+    @Override
+    public void removePlace(Long cityId, Long placeId) {
+        getRepository().deleteById(placeId);
+    }
+
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
     public void save(PlaceDto dto) {
         super.save(dto);
+    }
+
+    @Override
+    public void save(Long id, PlaceDto dto) {
+        Place place = findEntityById(id);
+        mapToEntity(place, dto);
     }
 
     @Override

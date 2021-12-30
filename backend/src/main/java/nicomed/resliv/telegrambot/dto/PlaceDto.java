@@ -16,4 +16,5 @@ import lombok.NoArgsConstructor;
 public class PlaceDto {
     private Long id;
     private String name;
+    private boolean isGood;
 }

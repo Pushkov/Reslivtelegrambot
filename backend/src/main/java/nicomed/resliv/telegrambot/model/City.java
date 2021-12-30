@@ -23,19 +23,9 @@ public class City {
     @Column(name = "NAME")
     private String name;
 
-    @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinTable(name = "CITY_GOOD_PLACES",
-            joinColumns = @JoinColumn(name = "CITY_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PLACE_ID"))
-    private List<Place> goodPlaces = new ArrayList<>();
 
-    @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinTable(name = "CITY_BAD_PLACES",
-            joinColumns = @JoinColumn(name = "CITY_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PLACE_ID"))
-    private List<Place> badPlaces = new ArrayList<>();
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Place> places = new ArrayList<>();
 
 
 }
