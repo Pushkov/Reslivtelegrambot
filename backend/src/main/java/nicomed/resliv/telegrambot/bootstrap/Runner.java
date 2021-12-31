@@ -30,7 +30,7 @@ public class Runner implements CommandLineRunner {
         placeService.addPlace(1L, PlaceDto.builder().name("Good_1_2").isGood(true).build());
         placeService.addPlace(1L, PlaceDto.builder().name("Bad_1_2").build());
 //
-        placeService.removePlace(1L, 2L);
+        placeService.removePlace(2L);
 //
 //
 //        cityService.save(CityCreateDto.builder()
