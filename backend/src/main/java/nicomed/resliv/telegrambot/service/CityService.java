@@ -8,6 +8,8 @@ public interface CityService extends CrudService<CityCreateDto, CityDto, Long> {
 
     City findEntityById(Long id);
 
+    CityDto findByName(String name);
+
     void save(Long id, CityCreateDto dto);
 
 }

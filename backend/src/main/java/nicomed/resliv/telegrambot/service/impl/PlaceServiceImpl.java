@@ -35,7 +35,7 @@ public class PlaceServiceImpl extends AbstractService<PlaceDto, PlaceDto, Place,
 
     @Transactional
     @Override
-    public void removePlace(Long cityId, Long placeId) {
+    public void removePlace(Long placeId) {
         getRepository().deleteById(placeId);
     }
 
@@ -45,6 +45,7 @@ public class PlaceServiceImpl extends AbstractService<PlaceDto, PlaceDto, Place,
         super.save(dto);
     }
 
+    @Transactional
     @Override
     public void save(Long id, PlaceDto dto) {
         Place place = findEntityById(id);

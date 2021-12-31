@@ -24,9 +24,14 @@ public class PlaceRestController {
         return placeService.findById(id);
     }
 
-    @PostMapping
-    public void create(@RequestBody PlaceDto dto) {
-        placeService.save(dto);
+    @PostMapping("/{city_id}")
+    public void addPlace(@PathVariable Long city_id, @RequestBody PlaceDto dto) {
+        placeService.addPlace(city_id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void removePlace(@PathVariable Long id) {
+        placeService.removePlace(id);
     }
 
     @PutMapping("/{id}")

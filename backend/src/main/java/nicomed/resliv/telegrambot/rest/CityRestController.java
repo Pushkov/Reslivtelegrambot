@@ -26,6 +26,11 @@ public class CityRestController {
         return cityService.findById(id);
     }
 
+    @GetMapping("/search")
+    public CityDto findByName(@RequestParam String city) {
+        return cityService.findByName(city);
+    }
+
     @PostMapping
     public void create(@RequestBody CityCreateDto dto) {
         cityService.save(dto);

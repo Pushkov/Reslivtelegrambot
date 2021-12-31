@@ -11,5 +11,5 @@ public interface PlaceService extends CrudService<PlaceDto, PlaceDto, Long> {
 
     void addPlace(Long id, PlaceDto dto);
 
-    void removePlace(Long cityId, Long placeId);
+    void removePlace(Long placeId);
 }
