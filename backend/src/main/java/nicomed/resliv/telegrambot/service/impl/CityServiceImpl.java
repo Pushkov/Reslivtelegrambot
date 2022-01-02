@@ -7,6 +7,8 @@ import nicomed.resliv.telegrambot.dto.mapper.CityMapper;
 import nicomed.resliv.telegrambot.model.City;
 import nicomed.resliv.telegrambot.repository.CityRepository;
 import nicomed.resliv.telegrambot.service.CityService;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,13 @@ public class CityServiceImpl extends AbstractService<CityCreateDto, CityDto, Cit
     private final CityRepository cityRepository;
     private final CityMapper mapper;
 
+    @Override
+    public Boolean isCityExists(String cityName) {
+        City city = City.builder().name(cityName).build();
+        ExampleMatcher caseInsensitiveExMatcher = ExampleMatcher.matchingAll().withIgnoreCase();
+        Example<City> example = Example.of(city, caseInsensitiveExMatcher);
+        return cityRepository.exists(example);
+    }
 
     @Override
     public City findEntityById(Long id) {

@@ -18,7 +18,6 @@ import java.util.List;
 public class CityDto {
     private Long id;
     private String name;
-//    private List<PlaceDto> places;
-private List<PlaceDto> goodPlaces;
+    private List<PlaceDto> goodPlaces;
     private List<PlaceDto> badPlaces;
 }
