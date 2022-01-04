@@ -6,10 +6,9 @@ import nicomed.resliv.telegrambot.dto.PlaceDto;
 import nicomed.resliv.telegrambot.service.CityService;
 import nicomed.resliv.telegrambot.service.PlaceService;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
-@Component
+//@Component
 public class Runner implements CommandLineRunner {
 
     private final CityService cityService;

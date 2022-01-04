@@ -1,20 +1,19 @@
 package nicomed.resliv.telegrambot.bot.command;
 
-import lombok.RequiredArgsConstructor;
+import nicomed.resliv.telegrambot.bot.flag.CommandFlagService;
 import nicomed.resliv.telegrambot.dto.CityCreateDto;
-import nicomed.resliv.telegrambot.model.City;
 import nicomed.resliv.telegrambot.service.CityService;
 import nicomed.telegram.botcommandmod.annotation.BotModCommand;
 import nicomed.telegram.botcommandmod.command.BaseBotCommand;
-import nicomed.telegram.botcommandmod.util.CommandUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static nicomed.resliv.telegrambot.bot.flag.CommandFlag.ADD_CITY;
 
 @BotModCommand
 public class AddCity extends BaseBotCommand {
 
+    @Autowired
+    private CommandFlagService flagService;
     @Autowired
     private CityService cityService;
 
@@ -29,14 +28,16 @@ public class AddCity extends BaseBotCommand {
 
     @Override
     public String getMessageText(String text) {
-        String args = CommandUtils.getCommandArguments(text);
-        if (isEmpty(args)) {
-            return getMessageText();
+        flagService.setFlag(ADD_CITY);
+        return "Введите название города:";
+    }
+
+    public String saveCity(String text) {
+        flagService.clearFlag();
+        if (cityService.isCityExists(text)) {
+            return "City with name: " + text + " already exists";
         }
-        if (cityService.isCityExists(args)) {
-            return "City with name: " + args + " already exists";
-        }
-        cityService.save(CityCreateDto.builder().name(args).build());
-        return "City " + args + " added.";
+        cityService.save(CityCreateDto.builder().name(text).build());
+        return "Город " + text + " добавлен.";
     }
 }

@@ -27,6 +27,11 @@ public class PlaceServiceImpl extends AbstractService<PlaceDto, PlaceDto, Place,
     }
 
     @Override
+    public PlaceDto findByName(String name) {
+        return placeRepository.findByNameIgnoreCase(name).map(this::mapToDto).orElse(null);
+    }
+
+    @Override
     public void addPlace(Long id, PlaceDto dto) {
         Place place = mapToEntity(dto);
         place.setCity(cityService.findEntityById(id));

@@ -1,0 +1,9 @@
+id,name,is_good,city_id
+1,"place_1",true,1
+2,"place_2",false,1
+3,"place_3",true,2
+4,"place_4",false,2
+5,"place_5",true,1
+6,"place_6",true,3
+7,"place_7",false,4
+

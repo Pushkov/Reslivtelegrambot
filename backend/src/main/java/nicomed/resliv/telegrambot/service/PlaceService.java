@@ -7,6 +7,8 @@ public interface PlaceService extends CrudService<PlaceDto, PlaceDto, Long> {
 
     Place findEntityById(Long id);
 
+    PlaceDto findByName(String name);
+
     void save(Long id, PlaceDto dto);
 
     void addPlace(Long id, PlaceDto dto);

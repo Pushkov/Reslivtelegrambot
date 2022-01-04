@@ -9,5 +9,6 @@ public interface CityRepository extends JpaRepository<City, Long> {
 
     Optional<City> findByNameIgnoreCase(String name);
 
+    void deleteByNameIgnoreCase(String name);
 
 }

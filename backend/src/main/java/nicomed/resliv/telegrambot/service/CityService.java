@@ -12,5 +12,7 @@ public interface CityService extends CrudService<CityCreateDto, CityDto, Long> {
 
     void save(Long id, CityCreateDto dto);
 
+    void deleteByName(String name);
+
     Boolean isCityExists(String cityName);
 }

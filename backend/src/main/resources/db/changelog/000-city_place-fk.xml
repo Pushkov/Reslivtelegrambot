@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+
+
+    <changeSet id="20220103-create-index-city-place-v1" author="Pushkov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="FK_CITY_PLACE_INDEX"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="FK_CITY_PLACE_INDEX" tableName="PLACE">
+            <column name="CITY_ID"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="20211031-add-fk-city-place-v1" author="Pushkov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_MEMO_WORKSHOP"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="PLACE" baseColumnNames="CITY_ID"
+                                 constraintName="FK_CITY_PLACE"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="CITY"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="RESTRICT"
+                                 onUpdate="RESTRICT"
+                                 validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

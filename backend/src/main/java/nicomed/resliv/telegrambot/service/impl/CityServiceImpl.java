@@ -54,6 +54,12 @@ public class CityServiceImpl extends AbstractService<CityCreateDto, CityDto, Cit
         }
     }
 
+    @Transactional
+    @Override
+    public void deleteByName(String name) {
+        cityRepository.deleteByNameIgnoreCase(name);
+    }
+
     @Override
     public JpaRepository<City, Long> getRepository() {
         return cityRepository;
