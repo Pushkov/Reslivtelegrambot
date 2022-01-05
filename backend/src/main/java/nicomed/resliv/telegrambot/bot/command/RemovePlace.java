@@ -20,7 +20,7 @@ public class RemovePlace extends BaseBotCommand {
     private PlaceService placeService;
 
     public RemovePlace() {
-        super("remove_place", "remove place by name");
+        super("remove_place", "Удаление памятного места из базы данных.");
     }
 
     @Override

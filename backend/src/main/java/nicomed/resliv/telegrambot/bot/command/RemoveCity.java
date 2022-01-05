@@ -21,12 +21,12 @@ public class RemoveCity extends BaseBotCommand {
     private CityService cityService;
 
     public RemoveCity() {
-        super("remove_city", "");
+        super("remove_city", "Удаление города из базы данных");
     }
 
     @Override
     public String getMessageText() {
-        return "city name for removing must not by empty. \n\r Add city name after command /remove_city";
+        return "";
     }
 
     @Override

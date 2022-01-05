@@ -26,7 +26,7 @@ public class AddPlace extends BaseBotCommand {
     private boolean isGood = true;
 
     public AddPlace() {
-        super("add_place", "add place");
+        super("add_place", "Добавление памятного места в базу данных");
     }
 
     @Override

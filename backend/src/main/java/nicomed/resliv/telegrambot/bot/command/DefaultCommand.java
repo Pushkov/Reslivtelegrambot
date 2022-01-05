@@ -18,7 +18,7 @@ import static org.apache.commons.lang3.StringUtils.isNoneEmpty;
 
 
 @BotModCommand(isDefault = true)
-public class CityCommand extends BaseBotCommand {
+public class DefaultCommand extends BaseBotCommand {
 
     @Autowired
     private CityService cityService;
@@ -26,8 +26,8 @@ public class CityCommand extends BaseBotCommand {
     @Autowired
     private CommandFlagService flagService;
 
-    public CityCommand() {
-        super("", "description");
+    public DefaultCommand() {
+        super("", "Команда по умолчанию");
     }
 
     @Override

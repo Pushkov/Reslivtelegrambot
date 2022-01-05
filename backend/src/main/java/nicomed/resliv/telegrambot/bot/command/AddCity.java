@@ -18,12 +18,12 @@ public class AddCity extends BaseBotCommand {
     private CityService cityService;
 
     public AddCity() {
-        super("add_city", "command for adding city in database");
+        super("add_city", "Добавление нового города в базу данных");
     }
 
     @Override
     public String getMessageText() {
-        return "city name for adding must not by empty. \n\r Add city name after command /add_city";
+        return "";
     }
 
     @Override
