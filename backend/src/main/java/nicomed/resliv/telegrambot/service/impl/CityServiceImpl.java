@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.Objects;
 
 @Transactional(readOnly = true)
@@ -34,6 +35,11 @@ public class CityServiceImpl extends AbstractService<CityCreateDto, CityDto, Cit
     @Override
     public City findEntityById(Long id) {
         return getRepository().findById(id).orElse(null);
+    }
+
+    @Override
+    public Collection<CityDto> findAll() {
+        return super.findAll();
     }
 
     @Override
