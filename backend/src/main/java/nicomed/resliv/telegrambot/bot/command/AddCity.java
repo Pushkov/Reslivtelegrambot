@@ -1,6 +1,7 @@
 package nicomed.resliv.telegrambot.bot.command;
 
 import nicomed.resliv.telegrambot.bot.flag.CommandFlagService;
+import nicomed.resliv.telegrambot.config.BotDataManager;
 import nicomed.resliv.telegrambot.dto.CityCreateDto;
 import nicomed.resliv.telegrambot.service.CityService;
 import nicomed.telegram.botcommandmod.annotation.BotModCommand;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static nicomed.resliv.telegrambot.bot.flag.CommandFlag.ADD_CITY;
 
+@BotDataManager
 @BotModCommand
 public class AddCity extends BaseBotCommand {
 

@@ -1,6 +1,7 @@
 package nicomed.resliv.telegrambot.bot.command;
 
 import nicomed.resliv.telegrambot.bot.flag.CommandFlagService;
+import nicomed.resliv.telegrambot.config.BotDataManager;
 import nicomed.resliv.telegrambot.dto.PlaceDto;
 import nicomed.resliv.telegrambot.service.PlaceService;
 import nicomed.telegram.botcommandmod.annotation.BotModCommand;
@@ -11,6 +12,7 @@ import java.util.Objects;
 
 import static nicomed.resliv.telegrambot.bot.flag.CommandFlag.REMOVE_PLACE;
 
+@BotDataManager
 @BotModCommand
 public class RemovePlace extends BaseBotCommand {
 

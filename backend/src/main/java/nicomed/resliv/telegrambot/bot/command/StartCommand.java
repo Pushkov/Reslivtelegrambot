@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.stream.Collectors;
 
 @BotModCommand
-public class InfoCommand extends BaseBotCommand {
+public class StartCommand extends BaseBotCommand {
 
     @Autowired
     private CityService cityService;
 
-    public InfoCommand() {
-        super("info", "Список всех городов");
+    public StartCommand() {
+        super("start", "Список всех городов");
     }
 
     @Override
@@ -25,7 +25,8 @@ public class InfoCommand extends BaseBotCommand {
 
     @Override
     public String getMessageText(String text) {
-
-        return cityService.findAll().stream().map(CityDto::getName).collect(Collectors.joining(",\n\r", "Список известных городов:\n\r", "."));
+        return cityService.findAll().stream()
+                .map(CityDto::getName)
+                .collect(Collectors.joining(",\n\r", "Список известных городов:\n\r", "."));
     }
 }

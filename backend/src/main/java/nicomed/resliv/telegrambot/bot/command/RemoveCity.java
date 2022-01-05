@@ -1,6 +1,7 @@
 package nicomed.resliv.telegrambot.bot.command;
 
 import nicomed.resliv.telegrambot.bot.flag.CommandFlagService;
+import nicomed.resliv.telegrambot.config.BotDataManager;
 import nicomed.resliv.telegrambot.dto.CityDto;
 import nicomed.resliv.telegrambot.service.CityService;
 import nicomed.telegram.botcommandmod.annotation.BotModCommand;
@@ -12,6 +13,7 @@ import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
+@BotDataManager
 @BotModCommand
 public class RemoveCity extends BaseBotCommand {
 

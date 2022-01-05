@@ -1,7 +1,6 @@
 package nicomed.resliv.telegrambot.bot;
 
 import lombok.RequiredArgsConstructor;
-import nicomed.resliv.telegrambot.bot.flag.CommandFlagService;
 import nicomed.resliv.telegrambot.config.BotConfig;
 import nicomed.telegram.botcommandmod.BotCommandMod;
 import org.springframework.stereotype.Component;
@@ -13,8 +12,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @RequiredArgsConstructor
 @Component
 public class ReslivLongPullingBot extends TelegramLongPollingBot {
-
-    private final CommandFlagService flagService;
 
     private final BotConfig botConfig;
 
@@ -32,8 +29,6 @@ public class ReslivLongPullingBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        System.out.println("isFlag = " + flagService.getFlag().toString());
-
         sendMessage(botCommandMod.getSendMessage(update));
     }
 

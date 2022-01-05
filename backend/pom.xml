@@ -64,21 +64,15 @@
         </dependency>
 
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>${springfox.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox.version}</version>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt.version}</version>
         </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -107,16 +101,6 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <configuration>
-                    <outputChangeLogFile>changelog.oracle.sql</outputChangeLogFile>
-                    <url>jdbc:h2:~/db/resliv_dev</url>
-                    <username>dev</username>
-                    <password>dev</password>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
