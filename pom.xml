@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>nicomed.resliv</groupId>
+    <artifactId>reslivTelegramBot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <profiles>
+        <profile>
+            <id>mvc</id>
+            <modules>
+                <module>frontend</module>
+                <module>backend</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>rest</id>
+            <modules>
+                <module>backend</module>
+            </modules>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <executions>
+                            <execution>
+                                <id>auto-clean_app</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                                <configuration>
+                                    <filesets>
+                                        <fileset>
+                                            <directory>${project.basedir}/src/main/resources/static/</directory>
+                                        </fileset>
+                                        <fileset>
+                                            <directory>${project.basedir}/src/main/resources/templates/</directory>
+                                        </fileset>
+                                    </filesets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.5</version>
+        <relativePath/>
+    </parent>
+    <packaging>pom</packaging>
+
+    <properties>
+        <app.revision>0.0.1-SNAPSHOT</app.revision>
+        <java.version>11</java.version>
+        <jasypt.version>3.0.3</jasypt.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <springfox.version>3.0.0</springfox.version>
+        <common.collection4.version>4.4</common.collection4.version>
+        <bot.command.mod.version>2.1-SNAPSHOT</bot.command.mod.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${common.collection4.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
