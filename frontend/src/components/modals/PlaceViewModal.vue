@@ -9,7 +9,7 @@
                     v-model="itemUser.id"
             />
         </div>
-        <div class="row my-1 mx-2">
+        <div class="row my-1 mx-2" v-if="itemUser.id === undefined">
             <div class="col-4 mr-2">Город:</div>
             <select v-if="isEdit"
                     class="col-sm text-secondary bg-light border rounded-lg"
@@ -18,7 +18,7 @@
                 <option
                         v-for="option in cities"
                         :value="option.id"
-                        :key="option.name"
+                        :key="option.id"
                 >
                     {{option.name}}
                 </option>
