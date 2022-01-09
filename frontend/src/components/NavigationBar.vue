@@ -10,7 +10,7 @@
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
                     <b-nav-item href="#">
-                        <router-link to="/tms/index">
+                        <router-link to="/index">
                             <span class="text-white-50">Стартовая</span>
                         </router-link>
                     </b-nav-item>
